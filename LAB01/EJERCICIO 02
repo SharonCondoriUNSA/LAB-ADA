@@ -33,3 +33,28 @@ int contarOcurrencias(const string& texto, const string& palabra) {
     }
     return contador;
 }
+
+int main() {
+    string texto = "la universidad es grande y la universidad es reconocida";
+    string palabra = "universidad";
+
+    //busqueda en texto
+    if (buscarCadena(texto, palabra)) {
+        cout<<"La palabra '"<<palabra<<"' se encuentra en el texto"<<endl;
+        cout<<"Se repite "<<contarOcurrencias(texto, palabra)<<" veces" <<endl;
+    } else {
+        cout << "La palabra '" << palabra << "' no se encuentra en el texto." << endl;
+    }
+
+    //bussqueda en lista ordenada
+    vector<string> lista = {"la", "universidad", "es", "grande", "reconocida"};
+    sort(lista.begin(), lista.end()); // ordenar antes de binary_search
+
+    if (buscarEnLista(lista, palabra)) {
+        cout << "La palabra '" << palabra << "' se encuentra en la lista ordenada." << endl;
+    } else {
+        cout << "La palabra '" << palabra << "' no se encuentra en la lista ordenada." << endl;
+    }
+
+    return 0;
+}
