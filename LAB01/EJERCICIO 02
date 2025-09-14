@@ -20,3 +20,16 @@ bool buscarCadena(const string& texto, const string& palabra) {
 bool buscarEnLista(const vector<string>& lista, const string& palabra) {
     return binary_search(lista.begin(), lista.end(), palabra);
 }
+
+//contar cuantas veces aparece una palabra en el texto
+int contarOcurrencias(const string& texto, const string& palabra) {
+    int n = texto.size();
+    int m = palabra.size();
+    int contador = 0;
+    for (int i = 0; i <= n - m; i++) {
+        if (texto.substr(i, m) == palabra) {
+            contador++;
+        }
+    }
+    return contador;
+}
