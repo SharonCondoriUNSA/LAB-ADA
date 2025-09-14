@@ -15,3 +15,8 @@ bool buscarCadena(const string& texto, const string& palabra) {
     }
     return false;
 }
+
+//busqueda binaria en una lista ordenada de palabras
+bool buscarEnLista(const vector<string>& lista, const string& palabra) {
+    return binary_search(lista.begin(), lista.end(), palabra);
+}
