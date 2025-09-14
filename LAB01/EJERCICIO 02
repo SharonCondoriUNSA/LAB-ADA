@@ -4,3 +4,14 @@
 #include <algorithm> //para sort y busqueda binarya
 
 using namespace std;
+//bussqueda de cadenas en un texto
+bool buscarCadena(const string& texto, const string& palabra) {
+    int n = texto.size();
+    int m = palabra.size();
+    for (int i = 0; i <= n - m; i++) {
+        if (texto.substr(i, m) == palabra) {
+            return true; // encontrada
+        }
+    }
+    return false;
+}
