@@ -18,3 +18,26 @@ void bubbleSort(vector<string>& lista) {
         }
     }
 }
+int main() {
+    vector<string> nombres1 = {"Juan", "Maria", "Pedro", "Ana", "Luis"};
+    vector<string> nombres2 = nombres1; // copia para usar sort
+
+    //lista original
+    cout << "Lista original: ";
+    for (auto& n : nombres1) cout << n << " ";
+    cout << "\n";
+
+    //ordenar con BubbleSort
+    bubbleSort(nombres1);
+    cout << "Ordenada con BubbleSort: ";
+    for (auto& n : nombres1) cout << n << " ";
+    cout << "\n";
+
+    //ordenar con sort()
+    sort(nombres2.begin(), nombres2.end());
+    cout << "Ordenada con sort(): ";
+    for (auto& n : nombres2) cout << n << " ";
+    cout << "\n";
+
+    return 0;
+}
