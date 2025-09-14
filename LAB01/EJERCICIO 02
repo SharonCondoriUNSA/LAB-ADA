@@ -1,1 +1,6 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm> //para sort y busqueda binarya
 
+using namespace std;
