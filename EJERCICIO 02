@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm> //para sort y busqueda binarya
+
+using namespace std;
+//bussqueda de cadenas en un texto
+bool buscarCadena(const string& texto, const string& palabra) {
+    int n = texto.size();
+    int m = palabra.size();
+    for (int i = 0; i <= n - m; i++) {
+        if (texto.substr(i, m) == palabra) {
+            return true; // encontrada
+        }
+    }
+    return false;
+}
+
+//busqueda binaria en una lista ordenada de palabras
+bool buscarEnLista(const vector<string>& lista, const string& palabra) {
+    return binary_search(lista.begin(), lista.end(), palabra);
+}
+
+//contar cuantas veces aparece una palabra en el texto
+int contarOcurrencias(const string& texto, const string& palabra) {
+    int n = texto.size();
+    int m = palabra.size();
+    int contador = 0;
+    for (int i = 0; i <= n - m; i++) {
+        if (texto.substr(i, m) == palabra) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int main() {
+    string texto = "la universidad es grande y la universidad es reconocida";
+    string palabra = "universidad";
+
+    //busqueda en texto
+    if (buscarCadena(texto, palabra)) {
+        cout<<"La palabra '"<<palabra<<"' se encuentra en el texto"<<endl;
+        cout<<"Se repite "<<contarOcurrencias(texto, palabra)<<" veces" <<endl;
+    } else {
+        cout << "La palabra '" << palabra << "' no se encuentra en el texto." << endl;
+    }
+
+    //bussqueda en lista ordenada
+    vector<string> lista = {"la", "universidad", "es", "grande", "reconocida"};
+    sort(lista.begin(), lista.end()); // ordenar antes de binary_search
+
+    if (buscarEnLista(lista, palabra)) {
+        cout << "La palabra '" << palabra << "' se encuentra en la lista ordenada." << endl;
+    } else {
+        cout << "La palabra '" << palabra << "' no se encuentra en la lista ordenada." << endl;
+    }
+
+    return 0;
+}
