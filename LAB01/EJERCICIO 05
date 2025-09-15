@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n;
+    cout << "Ingrese el valor de n: ";
+    cin >> n;
+
+    // ---- M1: bucle ----
+    long long suma_bucle = 0;
+    long long pasos_bucle = 0;
+
+    for (long long i = 1; i <= n; i++) {
+        suma_bucle += i;  
+        pasos_bucle++;    
+    }
+
+    // ---- M2: fórmula ----
+    long long suma_formula = (n * (n + 1)) / 2;
+    long long pasos_formula = 3; 
+
+    
+    cout << "\n=== RESULTADOS ===" << endl;
+
+    cout << "Suma con bucle: " << suma_bucle << endl;
+    cout << "Pasos realizados (bucle): " << pasos_bucle << endl;
+    cout << "Complejidad (bucle): O(n), Ω(n), Θ(n)" << endl;
+
+    cout << "\nSuma con formula: " << suma_formula << endl;
+    cout << "Pasos realizados (formula): " << pasos_formula << endl;
+    cout << "Complejidad (formula): O(1), Ω(1), Θ(1)" << endl;
+
+    // Comparación
+    cout << "\n=== COMPARACION DE EFICIENCIA ===" << endl;
+    if (pasos_bucle > pasos_formula) {
+        cout << "-> La formula es mas eficiente que el bucle." << endl;
+    } else {
+        cout << "-> El bucle es mas eficiente (solo para n muy pequenio)." << endl;
+    }
+
+    return 0;
+}
