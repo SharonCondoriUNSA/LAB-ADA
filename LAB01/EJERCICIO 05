@@ -16,8 +16,13 @@ int main() {
     }
 
     // ---- M2: fórmula ----
-    long long suma_formula = (n * (n + 1)) / 2;
-    long long pasos_formula = 3; 
+    long long pasos_formula = 0;
+
+    // (n * (n + 1)) / 2;
+    long long temp1 = n + 1; pasos_formula++;    // suma
+    long long temp2 = n * temp1; pasos_formula++; // multiplicación
+    long long suma_formula = temp2 / 2; pasos_formula++; // división
+
 
     
     cout << "\n=== RESULTADOS ===" << endl;
