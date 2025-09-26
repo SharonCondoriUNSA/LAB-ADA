@@ -38,3 +38,63 @@
 38;Sandalias de cuero;120.00
 39;Chaleco de plumas;200.00
 40;Abrigo largo;300.00
+41;Poncho;155.00
+42;Kimono;140.50
+43;Overol;130.00
+44;Zapatos casuales;175.00
+45;Bermuda;65.50
+46;Chaleco impermeable;160.00
+47;Botines;195.00
+48;Polo estampado;55.00
+49;Falda larga;85.00
+50;Vestido de noche;280.00
+51;Camiseta sin mangas;48.00
+52;Guantes de cuero;75.00
+53;Bufanda de lana;65.00
+54;Chaquetón;210.00
+55;Capa;145.00
+56;Mameluco;135.00
+57;Zapatillas urbanas;190.00
+58;Sandalias playeras;90.00
+59;Parka acolchada;220.00
+60;Chaleco reflectante;85.00
+61;Jersey;125.50
+62;Poncho de lana;180.00
+63;Chompa deportiva;115.00
+64;Buzo completo;160.00
+65;Blazer;175.50
+66;Camisa de lino;120.00
+67;Chaleco formal;155.00
+68;Falda plisada;95.00
+69;Vestido casual;150.00
+70;Polera con capucha;140.00
+71;Zapatillas running;210.00
+72;Botas de montaña;250.00
+73;Sombrero de ala ancha;90.00
+74;Guantes térmicos;65.00
+75;Cinturón de cuero;70.00
+76;Pantalón cargo;135.00
+77;Campera acolchada;185.00
+78;Chalina tejida;45.00
+79;Pantalón formal;160.00
+80;Cardigan largo;170.00
+81;Bikini;85.00
+82;Trikini;95.00
+83;Top casual;55.00
+84;Falda de cuero;200.00
+85;Zapatillas casuales;150.00
+86;Botines con taco;230.00
+87;Camisa a cuadros;110.00
+88;Sudadera con cierre;140.00
+89;Poncho impermeable;120.00
+90;Saco formal;190.00
+91;Chompa navideña;100.00
+92;Chaleco acolchado;150.00
+93;Abrigo de piel sintética;270.00
+94;Vestido de gala;320.00
+95;Zapatos mocasines;175.00
+96;Sandalias elegantes;125.00
+97;Polo básico;40.00
+98;Gorra;35.00
+99;Chaqueta vaquera;180.00
+100;Casaca térmica;210.00
