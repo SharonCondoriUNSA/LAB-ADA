@@ -1,0 +1,40 @@
+1;Polera;120.50
+2;Jeans;89.90
+3;Casaca;150.00
+4;Zapatillas;200.00
+5;Gorro;35.00
+6;Camisa;110.00
+7;Polo;45.50
+8;Chompa;130.00
+9;Falda;75.00
+10;Vestido;180.00
+11;Sandalias;95.00
+12;Short;65.00
+13;Medias;15.00
+14;Bufanda;40.00
+15;Guantes;55.00
+16;Chaleco;125.00
+17;Blusa;90.00
+18;Pantaloneta;70.00
+19;Saco;160.00
+20;Corbata;30.00
+21;Cinturon;50.00
+22;Bota;210.00
+23;Chalina;25.00
+24;Chaqueta;175.00
+25;Enterizo;140.00
+26;Leggins;80.00
+27;Jogger;100.00
+28;Parka;190.00
+29;Zapatos de vestir;220.00
+30;Pijama;85.00
+31;Top deportivo;60.00
+32;Sudadera;115.00
+33;Cardigan;135.00
+34;Chompa de lana;145.00
+35;Casaca de cuero;250.00
+36;Sombrero;70.00
+37;Zapatillas deportivas;180.00
+38;Sandalias de cuero;120.00
+39;Chaleco de plumas;200.00
+40;Abrigo largo;300.00
