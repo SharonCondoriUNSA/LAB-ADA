@@ -1,1 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
+// Imprime el estado del arreglo en cada paso
+void printArray(const vector<string>& arr, int paso) {
+    cout << "Paso " << paso << ": ";
+    for (string s : arr) {
+        cout << s << " ";
+    }
+    cout << endl;
+}
+
+// Algoritmo Insertion Sort
+void insertionSort(vector<string>& arr) {
+    int paso = 0;
+    printArray(arr, paso++); // estado inicial
+
+    for (int i = 1; i < arr.size(); i++) {
+        string key = arr[i];  
+        int j = i - 1;
+
+        // Mueve los elementos mayores que "key" una posición adelante
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+
+        printArray(arr, paso++); // imprimir en cada iteración
+    }
+}
+
+int main() {
+    int n;
+    cout << "Cuantos nombres deseas ingresar?: ";
+    cin >> n;
+
+    vector<string> nombres(n);
+    cout << "Ingresa los nombres:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> nombres[i];
+    }
+
+    cout << "\n--- Insertion Sort ---\n";
+    insertionSort(nombres);
+
+    cout << "\nLista final ordenada:\n";
+    for (string s : nombres) {
+        cout << s << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
