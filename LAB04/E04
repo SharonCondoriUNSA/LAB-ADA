@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
+// ---------- Selection Sort ----------
+void selectionSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n - 1; i++) {
+        int minIdx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIdx])
+                minIdx = j;
+        }
+        swap(arr[i], arr[minIdx]);
+    }
+}
+
+int main() {
+    const int N = 10000; // cantidad 
+    vector<int> arr(N);
+
+    // generar números aleatorios
+    srand(time(0));
+    for (int i = 0; i < N; i++) {
+        arr[i] = rand() % 100000;
+    }
+
+    // medir tiempo de ejecución
+    auto start = high_resolution_clock::now();
+    selectionSort(arr);
+    auto end = high_resolution_clock::now();
+
+    // convertir a segundos (double)
+    duration<double> duration_sec = end - start;
+
+    // mostrar resultados
+    cout << "Tiempo de ejecución (Selection Sort con 10,000 elementos): "
+         << duration_sec.count() << " segundos" << endl;
+
+    cout << "Total de elementos ordenados: " << arr.size() << endl;
+
+    return 0;
+}
