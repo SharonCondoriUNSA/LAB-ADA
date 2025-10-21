@@ -1,0 +1,78 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
+// Función para combinar dos subarreglos
+void merge(vector<int>& arr, int izquierda, int medio, int derecha) {
+    int n1 = medio - izquierda + 1;  
+    int n2 = derecha - medio;       
+
+    vector<int> L(n1), R(n2); 
+
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[izquierda + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[medio + 1 + j];
+    int i = 0, j = 0;         
+    int k = izquierda;    
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copia los elementos restantes de R[], si los hay
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+// MergeSort recursivo
+void mergeSort(vector<int>& arr, int izquierda, int derecha) {
+    if (izquierda < derecha) {
+        int medio = izquierda + (derecha - izquierda) / 2;
+
+        mergeSort(arr, izquierda, medio);      // Ordena la mitad izquierda
+        mergeSort(arr, medio + 1, derecha);    // Ordena la mitad derecha
+        merge(arr, izquierda, medio, derecha); // Combina ambas mitades
+    }
+}
+
+// Genera un vector con números aleatorios
+vector<int> generarArregloAleatorio(int n) {
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+        arr[i] = rand() % 100000; // valores entre 0 y 99,999
+    return arr;
+}
+
+int main() {
+    srand(time(0)); // Inicializa la semilla para generar numeros aleatorios
+    int n = 10000;
+    vector<int> arr = generarArregloAleatorio(n);
+    cout << "Ordenando " << n << " elementos con MergeSort..." << endl;
+    auto inicio = high_resolution_clock::now();
+    mergeSort(arr, 0, n - 1);
+    auto fin = high_resolution_clock::now();
+    duration<double> duracion = fin - inicio;
+    cout << "Tiempo de ejecucion: " << duracion.count() << " segundos" << endl;
+    return 0;
+}
