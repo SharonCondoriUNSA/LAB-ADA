@@ -1,0 +1,103 @@
+#include <bits/stdc++.h>
+using namespace std;
+using namespace chrono;
+
+const int INF = 1e9;
+
+// generar grafo aleatorio
+vector<vector<pair<int, int>>> generarGrafo(int V, int E) {
+    vector<vector<pair<int, int>>> grafo(V);
+    srand(time(0));
+    for (int i = 0; i < E; i++) {
+        int u = rand() % V;
+        int v = rand() % V;
+        int w = 1 + rand() % 100;
+        if (u != v) {
+            grafo[u].push_back(make_pair(v, w));
+            grafo[v].push_back(make_pair(u, w)); // grafo no dirigido
+        }
+    }
+    return grafo;
+}
+
+// Dijkstra
+vector<int> dijkstra(const vector<vector<pair<int, int>>> &grafo,int src){
+    int V = grafo.size();
+    vector<int> dist(V, INF);
+    dist[src] = 0;
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push(make_pair(0, src));
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        int d = pq.top().first;
+        pq.pop();
+
+        if (d > dist[u]) continue;
+
+        for (auto edge : grafo[u]) {
+            int v = edge.first;
+            int w = edge.second;
+
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push(make_pair(dist[v], v));
+            }
+        }
+    }
+    return dist;
+}
+
+// Floyd–Warshall
+vector<vector<int>>floydWarshall(const vector<vector<pair<int,int>>>&grafo){
+    int V = grafo.size();
+    vector<vector<int>> dist(V, vector<int>(V, INF));
+
+    for (int i = 0; i < V; i++) dist[i][i] = 0;
+
+    for (int u = 0; u < V; u++) {
+        for (auto edge : grafo[u]) {
+            int v = edge.first;
+            int w = edge.second;
+            dist[u][v] = min(dist[u][v], w);
+        }
+    }
+
+    for (int k = 0; k < V; k++)
+        for (int i = 0; i < V; i++)
+            for (int j = 0; j < V; j++)
+                if (dist[i][k] < INF && dist[k][j] < INF)
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+
+    return dist;
+}
+
+// main
+int main() {
+    int V = 200;
+    int E = 1000;
+    cout<<"Generando grafo aleatorio de "<<V<<" vertices y "<<E<<" aristas...\n";
+
+    auto grafo = generarGrafo(V, E);
+
+    // Dijkstra
+    auto start = high_resolution_clock::now();
+    auto distD = dijkstra(grafo, 0);
+    auto end = high_resolution_clock::now();
+    auto tiempoD = duration_cast<milliseconds>(end - start).count();
+    cout << "Tiempo Dijkstra: " << tiempoD << " ms\n";
+
+    // Floyd–Warshall
+    start = high_resolution_clock::now();
+    auto distF = floydWarshall(grafo);
+    end = high_resolution_clock::now();
+    auto tiempoF = duration_cast<milliseconds>(end - start).count();
+    cout << "Tiempo Floyd–Warshall: " << tiempoF << " ms\n";
+
+    // Verificación
+    cout<<"Distancia de 0 a "<<V-1<<" (Dijkstra): "<<distD[V-1]<<endl;
+    cout<<"Distancia de 0 a "<<V-1<<" (Floyd-Warshall): "<<distF[0][V-1]<<endl;
+
+    return 0;
+}
